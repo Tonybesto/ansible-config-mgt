@@ -1,3 +1,3 @@
 # ansible-config-mgt
 
-Push 
+Push and pull
