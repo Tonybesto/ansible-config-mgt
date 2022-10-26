@@ -2,7 +2,7 @@
 - name: install apache
   become: true
   ansible.builtin.yum:
-    name: "apache2"
+    name: "httpd"
     state: present
 
 - name: install git
