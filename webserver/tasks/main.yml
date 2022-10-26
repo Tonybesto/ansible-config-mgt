@@ -2,7 +2,7 @@
 - name: install apache
   become: true
   ansible.builtin.apt:
-    name: "httpd"
+    name: "apache2"
     state: present
 
 - name: install git
