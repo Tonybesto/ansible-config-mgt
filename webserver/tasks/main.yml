@@ -12,12 +12,14 @@
     state: present
 
 - name: clone a repo
-- git:
-    repo: https://github.com/Tonybesto/tooling.git
-    dest: /var/www/html
-    clone: yes
-    update: yes
-    force: yes
+  become: true
+  ansible.builtin.apt:
+    git:
+      repo: https://github.com/Tonybesto/tooling.git
+      dest: /var/www/html
+      clone: yes
+      update: yes
+      force: yes
 
 - name: copy html content to one level up
   become: true
