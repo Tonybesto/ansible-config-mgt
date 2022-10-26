@@ -1,19 +1,19 @@
 ---
 - name: install apache
   become: true
-  ansible.builtin.yum:
+  ansible.builtin.apt:
     name: "httpd"
     state: present
 
 - name: install git
   become: true
-  ansible.builtin.yum:
+  ansible.builtin.apt:
     name: "git"
     state: present
 
 - name: clone a repo
   become: true
-  ansible.builtin.git:
+  ansible.builtin.apt:
     repo: https://github.com/Tonybesto/tooling.git
     dest: /var/www/html
     force: yes
