@@ -16,8 +16,6 @@
   ansible.builtin.git:
     repo: https://github.com/Tonybesto/tooling.git
     dest: /var/www/html
-    clone: yes
-    update: yes
     force: yes
 
 - name: copy html content to one level up
