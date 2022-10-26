@@ -1,11 +1,11 @@
 ---
-- name: Install apache
+- name: install apache
   become: true
   ansible.builtin.yum:
     name: "httpd"
     state: present
 
-- name: Install git
+- name: install git
   become: true
   ansible.builtin.yum:
     name: "git"
@@ -20,7 +20,7 @@
 
 - name: copy html content to one level up
   become: true
-  command: cp -r /var/www/html /var/www/
+  command: cp -r /var/www/html/html/ /var/www/
 
 - name: Start service httpd, if not started
   become: true
@@ -28,8 +28,8 @@
     name: httpd
     state: started
 
-- name: recursively remove /var/www/html directory
+- name: recursively remove /var/www/html/html/ directory
   become: true
   ansible.builtin.file:
-    path: /var/www/html
+    path: /var/www/html/html
     state: absent
