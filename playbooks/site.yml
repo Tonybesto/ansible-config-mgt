@@ -8,13 +8,13 @@
 
 - hosts: webservers
 - name: Webserver assignment
-  import_playbook: ../static-assignments/uat-webservers.yml
+  import_playbook: ../static-assignments/webservers.yml
 
 - hosts: db
 - name: database mysql configuration
   import_playbook: ../static-assignments/mysql.yml
 
+  hosts: db
 - name: Loadbalancers assignment
-  hosts: lb
   import_playbook: ../static-assignments/loadbalancer.yml
   when: load_balancer_is_required 

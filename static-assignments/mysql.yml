@@ -1,7 +1,6 @@
 ---
-
 - hosts: db
   become: yes
   roles:
-    - role: mysql
+      - mysql
       

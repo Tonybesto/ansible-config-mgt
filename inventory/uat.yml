@@ -1,4 +1,12 @@
-[uat-webservers]
-172.31.24.182 ansible_ssh_user='ec2-user'
+[nfs]
+172.31.94.16
 
-172.31.27.212 ansible_ssh_user='ec2-user'
+[webservers]
+172.31.89.120
+172.31.94.25
+
+[db]
+172.31.16.199 ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/id_rsa
+
+[lb]
+172.31.82.155 ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/id_rsa
