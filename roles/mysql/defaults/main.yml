@@ -130,3 +130,24 @@ mysql_replication_role: ''
 mysql_replication_master: ''
 # Same keys as `mysql_users` above.
 mysql_replication_user: []
+     encoding: utf8
+     replicate: 1
+
+# Users.
+mysql_users: 
+   - name: webaccess
+     host: 0.0.0.0
+     password: secret
+     priv: '*.*:ALL,GRANT'
+
+mysql_disable_log_bin: false
+
+# Replication settings (replication is only enabled if master/user have values).
+mysql_server_id: "1"
+mysql_max_binlog_size: "100M"
+mysql_binlog_format: "ROW"
+mysql_expire_logs_days: "10"
+mysql_replication_role: ''
+mysql_replication_master: ''
+# Same keys as `mysql_users` above.
+mysql_replication_user: []
