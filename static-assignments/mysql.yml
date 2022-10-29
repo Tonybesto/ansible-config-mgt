@@ -3,5 +3,5 @@
 - hosts: db
   become: yes
   roles:
-  - mysql
+    - role: mysql
       
