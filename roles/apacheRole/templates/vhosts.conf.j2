@@ -1,0 +1,14 @@
+<VirtualHost *:80>
+
+
+        <Proxy "balancer://mycluster">
+                
+                BalancerMember http://172.31.92.139/index.php loadfactor=5 timeout=1
+                BalancerMember http://172.31.90.208/index.php loadfactor=5 timeout=1
+               ProxySet lbmethod=bytraffic
+               # ProxySet lbmethod=byrequests
+        </Proxy>
+        ProxyPreserveHost On
+        ProxyPass / balancer://mycluster/
+        ProxyPassReverse / balancer://mycluster/
+</VirtualHost>

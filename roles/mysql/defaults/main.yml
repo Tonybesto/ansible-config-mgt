@@ -1,9 +1,9 @@
 ---
 # Set this to the user ansible is logging in as - should have root
 # or sudo access
-mysql_user_home: /root
-mysql_user_name: root
-mysql_user_password: root
+mysql_user_home: /home/ec2-user
+mysql_user_name: ec2-user
+mysql_user_password: 
 
 # The default root user installed by mysql - almost always root
 mysql_root_home: /root
@@ -41,7 +41,7 @@ mysql_port: "3306"
 mysql_bind_address: '0.0.0.0'
 mysql_skip_name_resolve: false
 mysql_datadir: /var/lib/mysql
-mysql_sql_mode: ''
+mysql_sql_mode: ~
 # The following variables have a default value depending on operating system.
 # mysql_pid_file: /var/run/mysqld/mysqld.pid
 # mysql_socket: /var/lib/mysql/mysql.sock
@@ -106,18 +106,18 @@ mysql_config_include_files: []
 #  - { src: path/relative/to/playbook/anotherfile.cnf, force: yes }
 
 # Databases.
-mysql_databases:
-   - name: 'tooling'
-     collation: utf8_general_ci
-     encoding: utf8
-     replicate: 1
+mysql_databases: []
+name: tooling
+collation: utf8_general_ci
+encoding: utf8
+replicate: 1
 
 # Users.
-mysql_users:
-   - name: 'webaccess'
-     host: 0.0.0.0
-     password: secret
-     priv: '*.*:ALL,GRANT'
+mysql_users: []
+name: webaccess
+host: 127.0.0.1
+password: secret
+priv: tooling.*
 
 # Replication settings (replication is only enabled if master/user have values).
 mysql_server_id: "1"

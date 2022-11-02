@@ -1,0 +1,41 @@
+---
+- name: Install apache and dependencies
+  become: yes
+  apt:
+    name:
+      - apache2
+      - libxml2-dev
+    state: present
+
+- name: Start service httpd, if not started
+  become: yes
+  ansible.builtin.service:
+    name: apache2
+    state: started
+
+
+- name: Enable required Apache2 Modules
+  become: yes
+  shell: |
+    a2enmod rewrite
+    a2enmod proxy
+    a2enmod proxy_balancer
+    a2enmod proxy_http
+    a2enmod headers
+    a2enmod lbmethod_bytraffic
+  notify: Restart apache2 service
+
+- name: Copy configuration file
+  become: yes
+  template:
+    src: apache.conf.j2
+    dest: /etc/apache2/sites-available/000-default.conf
+    owner: root
+    group: root
+    mode: 0664
+  notify: Restart apache2 service
+
+- name: Enable load balancer configuration
+  become: yes
+  command: "a2enconf lb"
+  notify: Restart apache2 service
