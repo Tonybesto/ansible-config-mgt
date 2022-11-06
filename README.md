@@ -6,11 +6,13 @@
 (BECAUSE REDHAT IS A FREE VERSION WE INSTALLED THE ABOVE DEPENDECIES TO HAVE ACCESS TO SOME TOOLS)
 
 - yum install python3 python3-pip wget unzip git -y
+
+#### Dependencies for ansible 
 - python3 -m pip install --upgrade setuptools
 - python3 -m pip install --upgrade pip
 - python3 -m pip install PyMySQL
 - python3 -m pip install mysql-connector-python
-- python3 -m pip install psycopg2==2.7.5 --ignore-installed
+- python3 -m pip install psycopg2-binary --ignore-installed
 
 #### Installing  JAVA
 ====================================
