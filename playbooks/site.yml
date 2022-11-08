@@ -1,18 +1,27 @@
 ---
-- hosts: all
+#- hosts: all
 
-- name: Include dynamic variables
-  import_playbook: ../static-assignments/common.yml
-  include: ../dynamic-assignments/env-vars.yml
-  tags:
-    - always
+#- name: Include dynamic variables
+#  import_playbook: ../static-assignments/common.yml
+#  include: ../dynamic-assignments/env-vars.yml
+#  tags:
+#    - always
 
-- name: Delete wireshark installation
-  import_playbook: ../static-assignments/common-del.yml
+#- name: Delete wireshark installation
+#  import_playbook: ../static-assignments/common-del.yml
 
-- name: webserver
-  import_playbook: ../static-assignments/webservers.yml
+#- name: webserver
+#  import_playbook: ../static-assignments/webservers.yml
 
-- name: Loadbalancers assignment
-  import_playbook: ../static-assignments/loadbalancers.yml
-  when: load_balancer_is_required
+#- name: Loadbalancers assignment
+#  import_playbook: ../static-assignments/loadbalancers.yml
+#  when: load_balancer_is_required
+
+
+- hosts: db
+- name: database assignment
+  ansible.builtin.import_playbook: ../static-assignments/database.yml
+
+- hosts: nginx
+- name: nginx assignment
+  ansible.builtin.import_playbook: ../static-assignments/nginx.yml
