@@ -1,0 +1,9 @@
+pipeline {
+
+  agent any
+  
+  environment {
+      ANSIBLE_CONFIG=
+  }
+
+}
